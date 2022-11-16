@@ -1,5 +1,5 @@
 # Medal.TV Product Page
-This web page was created to market a program that allows you to easily save clips of your video game and then edit/share them.
+This web page was created to market a program that allows you to easily save clips of your video game and then edit/share them. The purple and gold color scheme was used rather than the black and gold traditionally used by medal.tv.
 
 ## Layout
 1. Features - short and easy to read with icons for better aesthetic
