@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecting Data from Dataframes in Pandas</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main id="main-doc">
+      <nav id="navbar">
+        <header><h1>Selection Method</h1></header>
+        <li><a class="nav-link" href="#Selecting_Rows">Selecting Rows</a></li>
+        <li><a class="nav-link" href="#Selecting_Columns">Selecting Columns</a></li>
+        <li><a class="nav-link" href="#Select_Cell_Value">Select Cell Value</a></li>
+        <li><a class="nav-link" href="#Dropping_Data">Dropping Data</a></li>
+        <li><a class="nav-link" href="#Selecting_Based_on_a_Value">Selecting Based on a Value</a></li>      
+        <li><a class="nav-link" href="#Reference">Reference</a></li>
+      </nav>
+      <h1>Selecting Data from Dataframes in Pandas</h1>
+        <p>There are many ways to access specific data in your dataframe. This page includes documentation for just some of the options available and is meant to be a brief rather than extensive guide.<br><br>We will be using the following dataframe for the examples:</p>
+        <img src="https://i.imgur.com/N6hamZQ.png" alt="data set of 6 rows with columns of 'Name', 'Age', 'College Grad', and 'Ethnicity'."><hr>
+      <section id="Selecting_Rows" class="main-section">
+        <header><h2>Selecting Rows</h2></header>
+        
+        <p style="white-space:pre-wrap">Using the "iloc" method is the easiest way to find a specific row based on its index.
+          <br><code class="input">df.iloc[2]</code> gets the values at index 2: 
+          <br><code style=>Name                Sam
+Age                  43
+College Grad       True
+Ethnicity       Italian</code>
+          <br><code class="input">df.iloc[[0,3]]</code> gets the rows with an index of 0 and 3 using a list of indices: 
+          <br><code>      Name  Age  College Grad Ethnicity
+0  Abigail   19         False   Chinese
+3     Alex   18         False  Filipino</code>
+          <br><code class="input">df.iloc[-2:]</code> gets the last 2 rows: 
+          <br><code>    Name  Age  College Grad         Ethnicity
+4  Emily   33          True          Canadian
+5  Penny   59          True  African American</code>
+        <br><code class="input">df.iloc[:,:2]</code> gets ever alternate row: 
+        <br><code>      Name  Age  College Grad Ethnicity
+0  Abigail   19         False   Chinese</code></p>
+        <p>The "loc" method is also very simple to use if the dataset has rows labeled (the example provided does not). But the documentation is as follows: 
+          <code class="input">df.loc['row-name']</code>. The output would be similar to the first example's.
+        <br><br>Essentially "iloc" and "loc" can utilize colons to indicate a range/alternating pattern and a list to indicate specific indices/names. Visit <a href="https://sparkbyexamples.com/pandas/pandas-select-rows-by-index/">SparkBy[Examples]</a> for more examples.
+        </p>
+      </section><hr>
+      <section id="Selecting_Columns" class="main-section">
+        <header><h2>Selecting Columns</h2></header>
+        <p style="white-space:pre-wrap">Selecting columns works similarly to getting rows. However the most common way is to use the column's name in tandem with the "loc" function. Note the colon.
+          <br><code class="input">df.loc[:,['Name']]</code> gets one whole column:
+          <br><code>        Name
+0    Abigail
+1  Sebastian
+2        Sam
+3       Alex
+4      Emily
+5      Penny</code>
+          <br><code class="input">df.loc[:,['College Grad','Age']]</code> gets the multiple columns listed:
+          <br><code>   College Grad  Age
+0         False   19
+1         False   25
+2          True   43
+3         False   18
+4          True   33
+5          True   59</code>
+          <br><code class="input">df.loc[:, 'College Grad':]</code> gets columns from "College Grad" and beyond:
+          <br><code>   College Grad         Ethnicity
+0         False           Chinese
+1         False             Irish
+2          True           Italian
+3         False          Filipino
+4          True          Canadian
+5          True  African American</code>
+          <p>You can also use the index position of columns to get data like you can for rows.</p>
+          <br><code class="input">df.iloc[:,:1]</code> gets the columns starting from the beginning up to the first index:
+          <p style="white-space:pre-wrap"><br><code>        Name
+0    Abigail
+1  Sebastian
+2        Sam
+3       Alex
+4      Emily
+5      Penny</code>
+          <br>Visit <a href="https://sparkbyexamples.com/pandas/pandas-select-columns-by-name-or-index/">SparkBy[Examples]</a> for more examples.
+        </p>
+      </section><hr>
+      <section id="Select_Cell_Value" class="main-section">
+        <header><h2>Select Cell Value</h2></header>
+        <p >To keep in line with the previous sections, we will cover using "iloc" and "loc" to access one particular value within the dataframe. The "loc" method requires the row label name/list first while the "iloc" method requires the row index number first. Generic syntax looks like this:</p>
+          <ul>
+            <li><code class="plain">df.loc['row-label-name']['column-label-name']</code></li>
+            <li><code class="plain">df.loc['row-label-name'][3]</code></li>
+            <li><code class="plain">df.iloc[0]['column-label-name']</code></li>
+            <li><code class="plain">df.iloc[2][-1]</code></li>
+          </ul>
+        <p style="white-space:pre-wrap">
+          <br><code class="input">df.iloc[1]['Age']</code> gets the age from the 2nd row of data:
+          <br><code>25</code>
+          <br>Visit <a href="https://sparkbyexamples.com/pandas/pandas-get-cell-value-from-dataframe/">SparkBy[Examples]</a> for more examples.
+        </p>
+      </section><hr>
+      <section id="Dropping_Data" class="main-section">
+        <header><h2>Dropping Data</h2></header>
+        <p>If you want to make changes to the dataframe itself, you can easily drop the values you don't want, so you end up with the data you do want left over. It's basically another way of selecting data. Some syntax that is helpful to know in conjunction with "df.drop()" include:</p>
+        <ul>
+          <li> <b>labels</b> - a label name or list of names</li>
+          <li> <b>axis</b> - can be equal to 0 to refer to rows or 1 to refer to columns</li>
+          <li> <b>index</b> - specifies rows either by name or a list</li>
+          <li> <b>columns</b> - specifies columns either by name or a list</li>
+          <li> <b>inplace</b> - false by default which indicates a new copy of the dataframe can be stored, otherwise, true saves the edits in the current dataframe.</li>
+        </ul>     
+        <p style="white-space:pre-wrap">The methods listed are used as parameters within the df.drop() function as follows:
+        <br><code class="input">df.drop(df.index[-1])</code> this instance has the last row removed: 
+        <br><code>        Name  Age  College Grad Ethnicity
+0    Abigail   19         False   Chinese
+1  Sebastian   25         False     Irish
+2        Sam   43          True   Italian
+3       Alex   18         False  Filipino
+4      Emily   33          True  Canadian</code>
+        </p>
+        <p style="white-space: pre-wrap">The parameters above aren't necessary with the df.drop() function if you are specific enough.
+        <br><code class="input">df.drop(['Ethnicity'], axis = 1)</code> this instance no longer contains the ethnicity column:
+        <br><code>        Name  Age  College Grad
+0    Abigail   19         False
+1  Sebastian   25         False
+2        Sam   43          True
+3       Alex   18         False
+4      Emily   33          True
+5      Penny   59          True</code>
+        </p>
+        <p><br>Visit <a href="https://sparkbyexamples.com/pandas/pandas-drop-rows-from-dataframe/">SparkBy[Examples]</a> for more examples.</p> 
+      </section><hr>
+      <section id="Selecting_Based_on_a_Value" class="main-section">
+        <header><h2>Selecting Based on a Value</h2></header>
+        <p style="white-space:pre-wrap">Finding data that meets certain requirements is extremely useful. Usually you'll be looking at a given column and want to get any and all rows of data whose value in the given column meet a certain standard. It is easy to perform conditional checks within the "loc" method, although the actual syntax of "loc" isn't required. You can compare integer values, check boolean values, see if strings match, and even check multiple columns at a time in order to return the desired rows of data.
+        <br><code class="input">df[df['Age'] < 20]</code> gets the rows of data from people who are teenagers and younger:
+        <br><code>      Name  Age  College Grad Ethnicity
+0  Abigail   19         False   Chinese
+3     Alex   18         False  Filipino</code>
+        <br><code class="input">df.loc[df['College Grad'] == True]</code> gets the rows of data from people who have graduated college:
+        <br><code>    Name  Age  College Grad         Ethnicity
+2    Sam   43          True           Italian
+4  Emily   33          True          Canadian
+5  Penny   59          True  African American</code>
+        <br><code class="input">df[df['Ethnicity'] == 'African American']</code> gets the rows of data from the African American people:
+        <br><code>    Name  Age  College Grad         Ethnicity
+5  Penny   59          True  African American</code>
+        <br><code class="input">df[(df['Age'] > 40) & (df['College Grad'] == True)]</code> gets the rows of data from people who are both older than 40 and have also graudated college:
+        <br><code>    Name  Age  College Grad         Ethnicity
+2    Sam   43          True           Italian
+5  Penny   59          True  African American</code>
+        </p>
+        <p>The same ideas apply to "df.drop()"" but that will not be covered here.Visit <a href="https://sparkbyexamples.com/pandas/pandas-delete-rows-based-on-column-value/">SparkBy[Examples]</a> for more examples.</p>         
+      </section><hr>
+      <section id="Reference" class="main-section">
+        <header><h2>Reference</h2></header>
+        <p>Information on this topic was compiled from <a href="https://sparkbyexamples.com/python-pandas-tutorial-for-beginners/">sparkbyexamples.com</a>
+      </section>
+      
+    </main>
+  </body>
+</html>
