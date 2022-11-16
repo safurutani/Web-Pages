@@ -1,0 +1,1 @@
+The goal was to go for a simplistic layout with minimal distraction for users to answer a few questions. I collect basic user indentification first. Then ask preference based questions that have multiple preset options to choose from. The final question allows users to type in their own answers. Finally, they are able to submit the survey for us to receive.
