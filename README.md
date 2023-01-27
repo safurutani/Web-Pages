@@ -33,7 +33,7 @@ Details about the project requirements: https://www.freecodecamp.org/learn/2022/
 
 ---------
 
-4. Simple Portfolio Page
+5. Simple Portfolio Page
 Build your own personal portfolio page.
 
 Details about the project requirements: https://www.freecodecamp.org/learn/2022/responsive-web-design/build-a-personal-portfolio-webpage-project/build-a-personal-portfolio-webpage
