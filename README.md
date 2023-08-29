@@ -30,3 +30,10 @@ Details about the project requirements: https://www.freecodecamp.org/learn/2022/
 Build a product landing page to market a product of your choice.
 
 Details about the project requirements: https://www.freecodecamp.org/learn/2022/responsive-web-design/build-a-product-landing-page-project/build-a-product-landing-page
+
+---------
+
+5. Simple Portfolio Page
+Build your own personal portfolio page.
+
+Details about the project requirements: https://www.freecodecamp.org/learn/2022/responsive-web-design/build-a-personal-portfolio-webpage-project/build-a-personal-portfolio-webpage
