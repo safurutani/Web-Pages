@@ -1,147 +1,150 @@
 :root {
-    --accent: #2a9d8f;
-    --gold: #e9c46a;
-    --navy: #264653;
-    --orange: #f4a261;
-    --dark_orange: #e76f51;
-    --white: #FFF1CF;
-  }
+  --accent: #2a9d8f;
+  --gold: #e9c46a;
+  --navy: #264653;
+  --orange: #f4a261;
+  --dark_orange: #e76f51;
+  --white: #FFF1CF;
+}
+html {
+  box-sizing: border-box;
+  color: var(--white);
+}
+h1 {
+  font-size: 6rem;
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 3rem;
+  background: var(--gold);
+  padding: 5px;
+  color: var(--navy);
+  border: solid 5px var(--orange);
+}
+h4 {
+  font-size: 2rem;
+}
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: var(--navy);
+}
+body {
+  background: var(--navy);
+  font-family: Gadugi, Arial;
+  margin-top: 160px;
+}
+nav {
+  border-bottom: 4px solid var(--accent);
+  margin-top: -320px;
+  padding: 20px 6px;
+  position: fixed;
+  width: 100%;
+  background: var(--navy);
+  z-index: 1;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: none;
+  top: 0;
+  left: 0;
+  padding: 0 30px;
+}
+nav a {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 20px;
+  font-size: 1.8rem;
+}
+nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--dark_orange);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.5rem;
+}
+.border.outer {
+  border: 10px solid var(--gold);
+  margin: 0 8%;
+  margin-top: 320px;
+  margin-bottom: 320px;
+}
+.border.inner {
+  border: 4px solid var(--gold);
+  transform: scale(.85);
+  border-right: none;
+  border-left: none;
+}
+#welcome-section {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  top: 40%;
+  scroll-margin-top: 400px;
+}
+#projects {
+  position: relative;
+  text-align: center;
+  scroll-margin-top: 90px;
+  display: grid;
+}
+.project{
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+#columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.preview {
+  width: 55%;
+}
+#about-me {
+  font-size: 2rem;
+  scroll-margin-top: 90px;
+}
+#about-me p {
+  padding: 5px 20px;
+  text-align: left;
+}
+.icon {
+  height: 70px;
+}
+#contact {
+  font-size: 1.8rem;
+  text-align: center;
+  display: block;
+  padding: 0;
+}
+#profile-link img {
+  transform: scale(.35);
+  margin-left: -240px;
+}
+@media (max-width: 75em) {
   html {
-    box-sizing: border-box;
-    color: var(--white);
-  }
-  h1 {
-    font-size: 6rem;
-  }
-  h2 {
-    font-size: 3rem;
-  }
-  h3 {
-    font-size: 3rem;
-    background: var(--gold);
-    padding: 5px;
-    color: var(--navy);
-    border: solid 5px var(--orange);
-  }
-  h4 {
-    font-size: 2rem;
-  }
-  header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background: var(--navy);
-  }
-  body {
-    background: var(--navy);
-    font-family: Gadugi, Arial;
-  }
-  nav {
-    border-bottom: 4px solid var(--accent);
-    margin-top: -10px;
-    padding: 20px 6px;
-    position: fixed;
-    width: 100%;
-    background: var(--navy);
-    z-index: 1;
-  }
-  .nav-list {
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    margin: none;
-    top: 0;
-    left: 0;
-    padding: 0 30px;
-  }
-  nav a {
-    text-decoration: none;
-    font-weight: 700;
-    color: var(--white);
-    margin: 0 20px;
-    font-size: 1.8rem;
-  }
-  nav a:hover {
-    text-decoration: underline;
-    text-decoration-color: var(--dark_orange);
-    text-decoration-thickness: 3px;
-    text-underline-offset: 0.5rem;
-  }
-  .border.outer {
-    border: 10px solid var(--gold);
-    margin: 0 8%;
-  }
-  .border.inner {
-    border: 4px solid var(--gold);
-    transform: scale(.85);
-    border-right: none;
-    border-left: none;
-  }
-  #welcome-section {
-    position: relative;
-    text-align: center;
-    height: 100%;
-    top: 40%;
-    scroll-margin-top: 400px;
-  }
-  #projects {
-    position: relative;
-    text-align: center;
-    scroll-margin-top: 90px;
-    display: grid;
-  }
-  .project{
-    text-align: center;
-    align-items: center;
-    width: 100%;
-  }
-  #columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    font-size: 60%;
   }
   .preview {
-    width: 55%;
+    width: 33%;
   }
-  #about-me {
-    font-size: 2rem;
-    scroll-margin-top: 90px;
+  .project-tile {
+    display: inline;
   }
-  #about-me p {
-    padding: 5px 20px;
-    text-align: left;
+}
+@media (max-width: 480px) {
+  html {
+    overflow: auto;
+    min-width: 480px;
   }
-  .icon {
-    height: 70px;
+  #welcome-section {
+    min-width: 480px;
+    overflow: auto;
   }
-  #contact {
-    font-size: 1.8rem;
-    text-align: center;
-    display: block;
-    padding: 0;
-  }
-  #profile-link img {
-    transform: scale(.35);
-    margin-left: -240px;
-  }
-  @media (max-width: 75em) {
-    html {
-      font-size: 60%;
-    }
-    .preview {
-      width: 33%;
-    }
-    .project-tile {
-      display: inline;
-    }
-  }
-  @media (max-width: 480px) {
-    html {
-      overflow: auto;
-      min-width: 480px;
-    }
-    #welcome-section {
-      min-width: 480px;
-      overflow: auto;
-    }
-  }
+}
